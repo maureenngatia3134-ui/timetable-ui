@@ -1,6 +1,6 @@
 
-## School Master Clsss 2024/2025
-# Description
+# School Master Clsss 2024/2025
+## Description
 This project is a digital version of the Master Timetable for the 2024/2025 academic year. It was created to make the printed timetable easier to read, share, and access digitally. The timetable organizes lessons, breaks, lunch, and activities for Year 7 to Year 11 across Monday to Friday.
 
 ## Purpose and Content
@@ -9,7 +9,7 @@ The purpose of the project is to present the timetable in a clear and structured
 ## Implementation Approach
 The timetable is implemented using HTML <table> with <thead> for time slot headers and <tbody> for the timetable content. Table cells are merged using rowspan and colspan where necessary. CSS is used to center the table, ensure consistent borders, add padding, and highlight special sessions like breaks and lunch for better readability. Accessibility is considered by using semantic HTML with table headers (<th>) for screen readers.
 
-# File Structure
+## File Structure
 The project folder contains:
 index.html: The main file with the timetable layout.
 style.css: The stylesheet for formatting and highlights.

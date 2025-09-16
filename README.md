@@ -16,6 +16,7 @@ index.html: The main file with the timetable layout.
 style.css: The stylesheet for formatting and highlights.
 README.md: Documentation for the project.
 timetable_preview.png: A screenshot of the timetable for quick preview.
+![timetable preview](https://github.com/maureenngatia3134-ui/timetable-ui/blob/bc10295217f684df0c768fb38670e790517879d9/Screenshot%202025-09-16%20174430.png)
 
 ## How to View or Use
 To view the timetable, open the index.html file in any web browser. The table will display the full weekly schedule. Subjects, teacher codes, or sessions can be edited directly inside the HTML file if updates are needed.

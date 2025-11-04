@@ -1,0 +1,32 @@
+body{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 3px 6px;
+  background-color: whitesmoke;
+}
+h2{ margin: bottom 15px;}
+table {
+  width: auto;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+th, td {
+  border: 1px solid black;
+  padding: 3px 6px;
+}
+.lunch {
+  background-color: lightgray;
+  font-weight: bold;
+}
+th {
+  background-color: whitesmoke;
+}
+td {
+  background-color: white;
+}
+p{
+  text-align: center;
+  font-size: 14px;
+  font-family: sans-serif;
+}

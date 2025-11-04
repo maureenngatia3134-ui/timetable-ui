@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "npm --prefix client start"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
+  }
+}

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER REGISTRATION FORM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+         /*CSS Variables for Color Management */
+        :root {
+            /* Primary Colors */
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            
+            /* Neutral Colors */
+            --background: #f9fafb;
+            --white: #ffffff;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border: #d1d5db;
+            --border-focus: #2563eb;
+            
+            /* Status Colors */
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+            
+            /* Accent Colors */
+            --accent-purple: #8b5cf6;
+            --accent-pink: #ec4899;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-weight-light: 300;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            
+            /* Border Radius */
+            --border-radius-sm: 0.25rem;
+            --border-radius: 0.375rem;
+            --border-radius-lg: 0.5rem;
+            
+            /* Transitions */
+            --transition-base: all 0.2s ease-in-out;
+            --transition-slow: all 0.3s ease-in-out;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.5;
+            color: var(--text-dark);
+            background-color: var(--background);
+            padding: var(--spacing-xl);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: var(--spacing-2xl);
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        .form-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .form-subtitle {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+        }
+
+        /* Fieldset Styling */
+        fieldset {
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            background-color: var(--white);
+            position: relative;
+        }
+
+        legend {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            padding: 0 var(--spacing-sm);
+            background-color: var(--white);
+            position: absolute;
+            top: -0.75rem;
+            left: var(--spacing-md);
+        }
+
+        /* Form Group Styling */
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--text-dark);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .form-group .helper-text {
+            font-size: var(--font-size-xs);
+            color: var(--text-light);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Input Field Styling */
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="search"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            background-color: var(--white);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            color: var(--text-dark);
+            transition: var(--transition-base);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-light);
+            font-weight: var(--font-weight-normal);
+        }
+
+        /* Focus States */
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Hover States */
+        input[type="text"]:hover,
+        input[type="email"]:hover,
+        input[type="password"]:hover,
+        input[type="tel"]:hover,
+        input[type="url"]:hover,
+        input[type="search"]:hover,
+        input[type="number"]:hover,
+        select:hover,
+        textarea:hover {
+            border-color: var(--primary-light);
+        }
+
+        /* Textarea Specific Styling */
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Select Dropdown Styling */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%231f2937'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
+        }
+
+        /* Radio Buttons & Checkboxes */
+        .checkbox-group,
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+        }
+
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-blue);
+        }
+
+        .checkbox-item label,
+        .radio-item label {
+            margin-bottom: 0;
+            font-weight: var(--font-weight-normal);
+        }
+
+        /* File Upload Inputs */
+        input[type="file"] {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 1px dashed var(--border);
+            border-radius: var(--border-radius);
+            background-color: var(--backgroundbackground);
+            transition: var(t--ransition-base);
+        }
+
+        input[type="file"]:hover {
+            border-color: var(--primary-light);
+            background-color: rgba(59, 130, 246, 0.05);
+        }
+
+        input[type="file"]:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, var(--primary-light),var(--primary-blue));
+            border-radius: 4px;
+            outline: none;
+          -webkit-slider-thumb:none
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-base);
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            background: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        color ::picker
+        input[type="color"] {
+            width: 60px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        input[type="color"]:hover {
+            border-color: var(--primary-light);
+        }
+
+        input[type="color"]:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        Button Styling */
+        .button-group {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            margin-top: var(--spacing-xl);
+        }
+
+        button {
+            padding: var(--spacing-md) var(--spacing-xl);
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: var(--transition-base);
+            flex: 1;
+            max-width: 200px;
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--primary-dark);
+        }
+
+        button[type="submit"]:active {
+            background-color: var(--primary-dark);
+            transform: translateY(1px);
+        }
+
+        button[type="reset"] {
+            background-color: var(--white);
+            color: var(--text-dark);
+            border: 1px solid var(--border);
+        }
+
+        button[type="reset"]:hover {
+            background-color: var(--background);
+            border-color: var(--text-light);
+        }
+
+        button[type="reset"]:active {
+            background-color: var(--border);
+            transform: translateY(1px);
+        }
+
+        /* Disabled States */
+        input:disabled,
+        select:disabled,
+        textarea:disabled,
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success and Error States */
+        .success {
+            border-color: var(--success);
+        }
+
+        .error {
+            border-color: var(--error);
+        }
+
+        .success-message {
+            color: var(--success);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xs);
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: var(--font-size-sm);
+            margin-top: var(--spacing-xs);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            body {
+                padding: var(--spacing-md);
+            }
+            
+            .form-container {
+                padding: var(--spacing-lg);
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+            
+            button {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form class="form-container">
+        <h1 class="form-title">USER REGISTRATION FORM</h1>
+        <p class="form-subtitle">Please fill out the form below</p>
+        
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+                <div class="helper-text">Enter first and last name</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="put your email">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(0702684726)">
+            </div>
+            
+            <div class="form-group">
+                <label for="website">Website (Optional)</label>
+                <input type="url" id="website" name="website" placeholder="https://example.com">
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Preferences</legend>
+            
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                    <option value="">Select a country</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="au">Australia</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Communication Preferences</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="emailUpdates" name="communication" value="email">
+                        <label for="emailUpdates">Email updates</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="smsUpdates" name="communication" value="sms">
+                        <label for="smsUpdates">SMS notifications</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="pushUpdates" name="communication" value="push">
+                        <label for="pushUpdates">Push notifications</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Preferred Contact Method</label>
+                <div class="radio-group">
+                    <div class="radio-item">
+                        <input type="radio" id="contactEmail" name="contactMethod" value="email">
+                        <label for="contactEmail">Email</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="contactPhone" name="contactMethod" value="phone">
+                        <label for="contactPhone">Phone</label>
+                    </div>
+                    <div class="radio-item">
+                        <input type="radio" id="contactBoth" name="contactMethod" value="both">
+                        <label for="contactBoth">Both</label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Additional Information</legend>
+            
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" placeholder="Tell us about yourself"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="avatar">Profile Picture</label>
+                <input type="file" id="avatar" name="avatar" accept="image/*">
+                <div class="helper-text">Accepted formats: JPG, PNG</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="satisfaction">Satisfaction Level</label>
+                <input type="range" id="satisfaction" name="satisfaction" min="1" max="10" value="5">
+                <div class="helper-text">Drag the slider to indicate your satisfaction level</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="favoriteColor">Favorite Color</label>
+                <input type="color" id="favoriteColor" name="favoriteColor" value="#2563eb">
+            </div>
+            
+            <div class="form-group">
+                <label for="birthdate">Birthdate</label>
+                <input type="date" id="birthdate" name="birthdate">
+            </div>
+            
+            <div class="form-group">
+                <label for="appointment">Preferred Appointment Time</label>
+                <input type="time" id="appointment" name="appointment">
+            </div>
+        </fieldset>
+        
+        <div class="button-group">
+            <button type="reset">Reset </button>
+            <button type="submit">Submit </button>
+        </div>
+    </form>
+
+    <script>
+        // Simple form validation and interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            // Add focus/blur effects
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.classList.remove('focused');
+                    validateField(this);
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                inputs.forEach(input => {
+                    if (!validateField(input)) {
+                        isValid = false;
+                    }
+                });
+                
+                if (isValid) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+                } else {
+                    alert('Please fix the errors before submitting.');
+                }
+            });
+            
+            // Form reset
+            form.addEventListener('reset', function() {
+                inputs.forEach(input => {
+                    input.parentElement.classList.remove('error', 'success');
+                    const errorMsg = input.parentElement.querySelector('.error-message');
+                    if (errorMsg) errorMsg.remove();
+                });
+            });
+            
+            // Validation function
+            function validateField(field) {
+                let isValid = true;
+                const parent = field.parentElement;
+                
+                // Remove existing error messages
+                const existingError = parent.querySelector('.error-message');
+                if (existingError) existingError.remove();
+                
+                parent.classList.remove('error', 'success');
+                
+                // Required field validation
+                if (field.hasAttribute('required') && !field.value.trim()) {
+                    showError(field, 'This field is required');
+                    isValid = false;
+                }
+                
+                // Email validation
+                if (field.type === 'email' && field.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(field.value)) {
+                        showError(field, 'Please enter a valid email address');
+                        isValid = false;
+                    }
+                }
+                
+                // URL validation
+                if (field.type === 'url' && field.value.trim()) {
+                    try {
+                        new URL(field.value);
+                    } catch {
+                        showError(field, 'Please enter a valid URL');
+                        isValid = false;
+                    }
+                }
+                
+                // Show success state if valid
+                if (isValid && field.value.trim()) {
+                    parent.classList.add('success');
+                }
+                
+                return isValid;
+            }
+            
+            function showError(field, message) {
+                const parent = field.parentElement;
+                parent.classList.add('error');
+                parent.classList.remove('success');
+                
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = message;
+                parent.appendChild(errorElement);
+            }
+        });
+    </script>
+</body>
+</html>
